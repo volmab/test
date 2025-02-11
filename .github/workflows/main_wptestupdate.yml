@@ -30,7 +30,7 @@ jobs:
         run: cd ./backend && yarn install
 
       - name: Run build
-        run: cd ./backend && yarn predeploy
+        run: cd ./backend && yarn build
 
       - name: Zip artifact for deployment
         run: zip release.zip backend/* -r
