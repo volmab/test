@@ -24,7 +24,8 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20.x'
-
+      - name: yarn config
+        run: yarn config set -H enableImmutableInstalls false
       - name: Install dependencies
         run: yarn install
       - name: Run lint
