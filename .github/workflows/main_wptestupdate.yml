@@ -37,7 +37,7 @@ jobs:
 
       - name: Zip artifact for deployment
         working-directory: backend
-        run: zip --symlinks -r ../backend.zip ./* -x "node_modules/**" -x "*.git/**" 
+        run: zip --symlinks -r ../backend.zip ./* 
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
