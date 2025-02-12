@@ -56,5 +56,5 @@ jobs:
           slot-name: 'Production'
           package: backend/release.zip
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_BCBCA7AF9841444691BA11A24266D225 }}
-          overwrite: true
-          include-hidden-files: true
+          clean: true
+          restart: true
