@@ -30,10 +30,10 @@ jobs:
         run: yarn config set -H enableImmutableInstalls false
       - name: Install dependencies
         working-directory: backend
-        run: yarn install
-      - name: db_update
+        run: npm install --save medusa
+      - name: npm build
         working-directory: backend
-        run: yarn install && yarn run seed
+        run: npm build
 
       - name: Zip artifact for deployment
         working-directory: backend
