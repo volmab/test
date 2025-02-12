@@ -33,7 +33,7 @@ jobs:
         run: npm install --save medusa
       - name: npm build
         working-directory: backend
-        run: npm build
+        run: npm run build
 
       - name: Zip artifact for deployment
         working-directory: backend
