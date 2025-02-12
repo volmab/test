@@ -56,15 +56,5 @@
   "engines": {
     "node": ">=20"
   },
-  "packageManager": "yarn@4.4.0",
-  "workspaces": {
-  "packages": [
-    "packages/*"
-  ],
-  "nohoist": [
-    "**/@medusajs",
-    "**/@medusajs/**",
-    "**medusa**"
-  ]
- }
+  "packageManager": "yarn@4.4.0"
 }
