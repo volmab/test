@@ -33,7 +33,7 @@ jobs:
         run: yarn install
       - name: db_update
         working-directory: backend
-        run: yarn install && yarn medusa db:create && yarn medusa db:migrate && yarn run seed
+        run: yarn install && yarn run seed
 
       - name: Zip artifact for deployment
         working-directory: backend
