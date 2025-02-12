@@ -31,22 +31,19 @@ jobs:
       - name: Install dependencies
         working-directory: backend
         run: yarn install
-      - name: cat
+      - name: db_update
         working-directory: backend
-        run: cat package.json
-      - name: Run build
-        working-directory: backend
-        run: yarn build
+        run: yarn install && yarn medusa db:create && yarn medusa db:migrate && yarn run seed
 
       - name: Zip artifact for deployment
         working-directory: backend
-        run: zip --symlinks -r release.zip ./* -x "node_modules/**" -x "*.git/**" 
+        run: zip --symlinks -r ../backend.zip ./* -x "node_modules/**" -x "*.git/**" 
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
         with:
           name: node-app
-          path: backend/release.zip
+          path: backend.zip
 
       - name: 'Deploy to Azure Web App'
         id: deploy-to-webapp
@@ -54,7 +51,7 @@ jobs:
         with:
           app-name: 'wptestupdate'
           slot-name: 'Production'
-          package: backend/release.zip
+          package: backend.zip
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_BCBCA7AF9841444691BA11A24266D225 }}
           clean: true
           restart: true
